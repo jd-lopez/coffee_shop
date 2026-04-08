@@ -1,0 +1,39 @@
+---
+import { Icon } from "astro-iconify";
+---
+
+<header class="">
+  <div class="bg-lightbg md:flex md:justify-between items-center px-10 py-3">
+    <div class="text-primary font-bold text-2xl">My Coffee Shop</div>
+
+    <ul class="text-primary md:flex gap-3">
+      <a
+        class="navBtn border-b-2 border-transparent hover:border-primary hover:-translate-y-1 transition-all duration-200"
+        >Menu</a
+      >
+      <a
+        class="navBtn border-b-2 border-transparent hover:border-primary hover:-translate-y-1 transition-all duration-200"
+        >About</a
+      >
+      <a
+        class="navBtn border-b-2 border-transparent hover:border-primary hover:-translate-y-1 transition-all duration-200"
+        >Locations</a
+      >
+    </ul>
+
+    <div class="flex items-center gap-5">
+      <button class="bg-primary text-white px-3 py-1 rounded-2xl"
+        >Order Now</button
+      >
+      <Icon name="mdi:cart" class="text-primary size-5" />
+    </div>
+  </div>
+</header>
+
+<!-- <style lang="css">
+  /* [astro-icon="mdi:cart"] {
+    color: red;
+    width: 2rem;
+    height: auto;
+  } */
+</style> -->
