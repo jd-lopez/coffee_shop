@@ -15,11 +15,6 @@
     box-shadow: 0 0 5px 3px var(--color-secondary);
     border: 1px white solid;
   }
-
-  .bgImage {
-    background-image: var("images/green-cup.jpg") cover bottom;
-  }
-
 }
 
 @layer utilities {
