@@ -15,7 +15,7 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.google(),
-      name: "PlusJakarta",
+      name: "Plus Jakarta Sans",
       cssVariable: "--font-jakarta",
       weights: [200, "400", "bold"],
     },

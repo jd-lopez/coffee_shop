@@ -2,11 +2,18 @@
 import { Icon } from "astro-iconify";
 ---
 
-<header class="">
-  <div class="bg-lightbg md:flex md:justify-between items-center px-10 py-3">
-    <div class="text-primary font-bold text-2xl">My Coffee Shop</div>
+<header class="h-20 md:h-20">
+  <div
+    class="flex justify-between px-4 bg-lightbg md:flex md:justify-between items-center md:px-10 py-3"
+  >
+    <div class="text-primary font-bold text-sml md:text-2xl">
+      My Coffee Shop
+    </div>
 
-    <ul class="text-primary md:flex gap-3">
+    <ul
+      id="nav-links"
+      class="absolute flex flex-col bg-lightbg gap-1 left-0 translate-x-full w-full transition-transform duration-300 ease-out md:static md:flex-row top-20 z-20 text-primary md:gap-3 md:bg-inherit md:translate-x-0 md:w-fit"
+    >
       <a
         class="navBtn border-b-2 border-transparent hover:border-primary hover:-translate-y-1 transition-all duration-200"
         >Menu</a
@@ -22,18 +29,29 @@ import { Icon } from "astro-iconify";
     </ul>
 
     <div class="flex items-center gap-5">
-      <button class="bg-primary text-white px-3 py-1 rounded-2xl"
-        >Order Now</button
-      >
+      <button
+        class="px-2 py-1 ring ring-secondary text-xs bg-primary text-white md:px-3 md:py-1 rounded-2xl md:text-lg"
+        >Order Now
+      </button>
       <Icon name="mdi:cart" class="text-primary size-5" />
     </div>
+
+    <button type="button" id="hamburger" class="md:hidden">
+      <Icon name="mdi:menu" class="size-10" />
+    </button>
   </div>
 </header>
 
-<!-- <style lang="css">
-  /* [astro-icon="mdi:cart"] {
-    color: red;
-    width: 2rem;
-    height: auto;
-  } */
-</style> -->
+<script>
+  const toggleButton = document.getElementById("hamburger");
+  const menu = document.getElementById("nav-links");
+
+  if (toggleButton && menu) {
+    toggleButton.addEventListener("click", () => {
+      console.log("Hello");
+
+      menu.classList.toggle("translate-x-0");
+      menu.classList.toggle("translate-x-full");
+    });
+  }
+</script>

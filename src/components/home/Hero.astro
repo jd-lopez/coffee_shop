@@ -1,18 +1,48 @@
-<div class="h-140 relative">
+<div class="md:h-160 relative">
   <div
-    class="absolute inset-0 bg-linear-to-r from-primary/30 from-50% to-transparent"
+    class="absolute inset-0 bg-linear-to-r from-primary/40 from-50% to-transparent rounded-br-4xl rounded-bl-4xl"
   >
   </div>
 
-  <div class="h-full">
-    <img src="images/spilling.jpg" alt="" class="bg-cover h-full w-full" />
-    <div class="z-10 absolute top-1/4 left-0 text-white px-6 flex flex-col">
+  <div class="h-full rounded-br-4xl rounded-bl-4xl">
+    <img
+      src="images/desktop/hero.png"
+      alt=""
+      class="hidden md:block bg-center h-full w-full rounded-br-4xl rounded-bl-4xl"
+    />
+    <img
+      src="images/mobile/heromobile.png"
+      alt=""
+      class="md:hidden bg-center h-full w-full rounded-br-4xl rounded-bl-4xl"
+    />
+    <div
+      class="text-sm z-10 absolute top-1/5 left-0 text-white px-6 flex flex-col gap-8 md:w-140"
+    >
       <p class="bg-secondary rounded-2xl text-white px-2 py-1 w-fit">
         Radian Vitality in every Sip
       </p>
-      <p class="text-5xl w-80 font-bold">
+      <p class="text-2xl md:text-7xl font-bold">
         Savor the <span class="text-secondary">Radian Oasis</span>
       </p>
+
+      <p>
+        Energetic micro-lots and tropical-infused brews that ignite your morning
+        ritual with the spirit of the sun
+      </p>
+
+      <div class="flex gap-6">
+        <button
+          class="uppercase group relative overflow-hidden cursor-pointer rounded-2xl bg-secondary px-3 py-1 md:px-5 md:py-2 text-white font-semibold text-xs yellowShadow"
+          ><span
+            class="absolute inset-y-0 left-0 w-0 bg-primary group-hover:w-full transition-all duration-500 ease-in-out"
+          ></span>
+          <span class="z-10 relative text-xs md:text-sm">View Fresh Menu</span>
+        </button>
+        <button
+          class="uppercase cursor-pointer ring ring-gray-400 rounded-3xl bg-white/15 backdrop-blur-xl backdrop-saturate-150 border border-white/20 shadow-[0_8px_30px_rgba(0,0,0,0.12)] px-3 py-1 text-white text-xs"
+          >Our tropical story</button
+        >
+      </div>
     </div>
   </div>
 </div>

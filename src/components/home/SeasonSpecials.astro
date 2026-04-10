@@ -1,0 +1,101 @@
+---
+import { Icon } from "astro-iconify";
+---
+
+<section>
+  <div class="p-4 md:p-10 md:h-full">
+    <div>
+      <h1 class="text-2xl font-semibold">Seasonal Specials</h1>
+    </div>
+
+    <div
+      class="grid grid-flow-col auto-cols-[85%] overflow-x-auto snap-x snap-mandatory w-full no_scrollbar md:grid-cols-3 md:grid-rows-2 md:grid-flow-row md:auto-cols-auto md:h-160 gap-4 mt-12"
+    >
+      <div
+        class="md:row-span-2 md:col-span-2 relative rounded-4xl overflow-hidden group"
+      >
+        <img
+          src="images/desktop/starbuck.png"
+          alt=""
+          class="hidden md:block absolute bg-center bg-cover w-full h-full rounded-4xl group-hover:scale-105 transition-transform duration-500"
+        />
+
+        <img
+          src="images/mobile/orange-leaves.png"
+          alt=""
+          class="md:hidden absolute bg-center bg-cover w-full h-full rounded-4xl group-hover:scale-105 transition-transform duration-500"
+        />
+
+        <div
+          class="hidden md:flex absolute justify-between items-center gap-20 w-fit md:bottom-10 md:left-25 md:p-8 rounded-3xl bg-white/80 backdrop-blur-xl ring ring-white"
+        >
+          <div class="">
+            <p class="bg-green-300/60 text-sm w-fit rounded-2xl px-2 uppercase">
+              Signature Drink
+            </p>
+            <p class="text-4xl font-bold">Sun-Kissed Kiwi Mango</p>
+          </div>
+
+          <p
+            id="heroPrice"
+            class="rounded-full p-2 bg-secondary size-12 grid place-content-center text-white"
+          >
+            $9
+          </p>
+        </div>
+
+        <p class="md:hidden absolute bottom-4 left-16 text-white font-bold">
+          Golden Citrus Brew
+        </p>
+      </div>
+
+      <div
+        class="hidden md:flex bg-primary rounded-4xl p-12 text-white flex-col gap-2 place-content-center group"
+      >
+        <h1 class="text-secondary text-2xl font-bold">
+          Tropical Roast: Nicaragua
+        </h1>
+        <p class="text-gray-300">
+          Vibrant Notes of passionfruit and sweet honeycomb. A bright, medium
+          body that brings the sunshine to your cup
+        </p>
+
+        <button
+          class="flex gap-2 items-center group-hover:scale-110 group-hover:translate-x-4 transition-transform ease-in-out"
+        >
+          <p class="font-semibold">Shop Beans</p>
+          <Icon name="line-md:arrow-right" class="size-6" />
+        </button>
+      </div>
+
+      {/*mobile tea */}
+      <div
+        class="md:hidden rounded-4xl text-4xl text-white relative group overflow-hidden"
+      >
+        <img
+          src="images/mobile/green-tea.png"
+          alt=""
+          class="h-full w-full object-cover rounded-4xl transition-transform duration-500 ease-out group-hover:scale-105"
+        />
+
+        <h1 class="absolute top-1/2 -translate-y-1/2 left-10">
+          Emerald Matcha
+        </h1>
+      </div>
+
+      <div
+        class="rounded-4xl text-4xl text-white relative group overflow-hidden"
+      >
+        <img
+          src="images/green-cup.jpg"
+          alt=""
+          class="h-full w-full object-cover rounded-4xl transition-transform duration-500 ease-out group-hover:scale-105"
+        />
+
+        <h1 class="absolute top-1/2 -translate-y-1/2 left-10">
+          Warm Island Spice
+        </h1>
+      </div>
+    </div>
+  </div>
+</section>

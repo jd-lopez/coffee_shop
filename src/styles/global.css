@@ -11,7 +11,23 @@
 }
 
 @layer components {
+  .yellowShadow {
+    box-shadow: 0 0 5px 3px var(--color-secondary);
+    border: 1px white solid;
+  }
+
+  .bgImage {
+    background-image: var("images/green-cup.jpg") cover bottom;
+  }
+
+}
+
+@layer utilities {
+  .no_scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
   .navBtn {
-    padding: 1rem 0.5rem;
+    @apply px-4 py-2 md:px-2 md:py-4;
   }
 }
