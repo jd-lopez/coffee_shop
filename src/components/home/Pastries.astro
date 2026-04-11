@@ -1,0 +1,100 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section>
+  <div class="h-full">
+    <h1 class="text-xs text-tertiary">FRESH FROM THE BAKERY</h1>
+    <div class="flex justify-between mt-1 mb-10">
+      <h1 class="text-2xl font-bold text-primary">Sun-Baked Delights</h1>
+      <button
+        class="text-lg text-white bg-primary px-3 py-1 rounded-2xl md:hover:shadow-md shadow-green-500 transition-all duration-200"
+        >Explore all Pastries</button
+      >
+    </div>
+
+    <div class="flex justify-between">
+      <button id="prevBtn"><Icon name="mdi:arrow-back" class="size-8" /></button
+      >
+      <button id="nextBtn"
+        ><Icon name="mdi:arrow-forward" class="size-8" /></button
+      >
+    </div>
+
+    {/*Grid items */}
+    <div id="wrapper" class="mt-2 overflow-x-auto no_scrollbar">
+      <div class="flex gap-3">
+        <div class="flex flex-col gap-2">
+          <div class="rounded-md shadow-md overflow-hidden size-68 group">
+            <img
+              src="images/desktop/starbuck.png"
+              alt=""
+              class="bg-center bg-cover w-full h-full rounded-md group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div>
+            <h1>hello</h1>
+          </div>
+        </div>
+        <div>
+          <div class="rounded-lg shadow-md overflow-hidden size-68 group">
+            <img
+              src="/images/desktop/pistachio.png"
+              alt=""
+              class="bg-center bg-cover w-full h-full rounded-lg group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        </div>
+        <div>
+          <div class="rounded-md shadow-md overflow-hidden size-68 group">
+            <img
+              src="/images/desktop/chocolate.png"
+              alt=""
+              class="bg-center bg-cover w-full h-full rounded-md group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        </div>
+        <div class="flex flex-col gap-2">
+          <div class="rounded-md shadow-md overflow-hidden size-68 group">
+            <img
+              src="images/desktop/starbuck.png"
+              alt=""
+              class="bg-center bg-cover w-full h-full rounded-md group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div>
+            <h1>hello</h1>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2">
+          <div class="rounded-md shadow-md overflow-hidden size-68 group">
+            <img
+              src="images/desktop/starbuck.png"
+              alt=""
+              class="bg-center bg-cover w-full h-full rounded-md group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div>
+            <h1>hello</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const wrapper = document.getElementById("wrapper");
+
+  const scrollAmount = 272;
+
+  nextBtn?.addEventListener("click", () => {
+    wrapper?.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  });
+
+  prevBtn?.addEventListener("click", () => {
+    wrapper?.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+  });
+</script>

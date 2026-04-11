@@ -4,7 +4,7 @@ import { Icon } from "astro-icon/components";
 
 <header class="h-20 md:h-20">
   <div
-    class="flex justify-between px-4 bg-lightbg md:flex md:justify-between items-center md:px-10 py-3"
+    class="flex justify-between h-full px-4 md:px-28 bg-lightbg md:flex md:justify-between items-center py-3"
   >
     <div class="text-primary font-bold text-sml md:text-2xl">
       My Coffee Shop
@@ -30,10 +30,10 @@ import { Icon } from "astro-icon/components";
 
     <div class="flex items-center gap-5">
       <button
-        class="px-2 py-1 ring ring-secondary text-xs bg-primary text-white md:px-3 md:py-1 rounded-2xl md:text-lg"
+        class="px-2 py-1 ring ring-secondary text-xs bg-primary text-white md:px-3 md:py-1 rounded-2xl md:text-lg shadow-neutral md:hover:shadow-lg transition-all duration-400"
         >Order Now
       </button>
-      <Icon name="mdi:cart" class="text-primary size-5" />
+      <Icon name="mdi:cart" class="text-primary size-5 md:hover:scale-140" />
     </div>
 
     <button type="button" id="hamburger" class="md:hidden">
@@ -54,4 +54,10 @@ import { Icon } from "astro-icon/components";
       menu.classList.toggle("translate-x-full");
     });
   }
+
+  window.addEventListener("click", (e) => {
+    if (!menu?.contains(e.target) && !toggleButton?.contains(e.target)) {
+      menu?.classList.add("translate-x-full");
+    }
+  });
 </script>

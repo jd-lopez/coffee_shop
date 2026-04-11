@@ -3,13 +3,17 @@ import { Icon } from "astro-icon/components";
 ---
 
 <section>
-  <div class="p-4 md:p-10 md:h-full">
-    <div>
-      <h1 class="text-2xl font-semibold">Seasonal Specials</h1>
+  <div class="py-10 md:h-full">
+    <div class="flex justify-between">
+      <div>
+        <h1 class="text-2xl font-semibold">Seasonal Specials</h1>
+        <p class="text-xs text-gray-800">Limited time radiant blends</p>
+      </div>
+      <button class="text-primary">View All</button>
     </div>
 
     <div
-      class="grid grid-flow-col auto-cols-[85%] overflow-x-auto snap-x snap-mandatory w-full no_scrollbar md:grid-cols-3 md:grid-rows-2 md:grid-flow-row md:auto-cols-auto md:h-160 gap-4 mt-12"
+      class="grid grid-flow-col auto-cols-[85%] overflow-x-auto snap-x snap-mandatory w-full no_scrollbar md:grid-cols-3 md:grid-rows-2 md:grid-flow-row md:auto-cols-auto md:h-160 gap-4 mt-4"
     >
       <div
         class="md:row-span-2 md:col-span-2 relative rounded-4xl overflow-hidden group"
