@@ -25,4 +25,11 @@
   .navBtn {
     @apply px-4 py-2 md:px-2 md:py-4;
   }
+
+  .pastriesTitle {
+    @apply text-primary text-lg font-bold;
+  }
+  .pastriesDesc {
+    @apply text-sm text-neutral;
+  }
 }

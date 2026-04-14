@@ -1,0 +1,52 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section class="px-4 py-10 md:px-28 md:py-15 bg-white">
+  <div>
+    <div
+      class="flex flex-col relative justify-between gap-10 md:flex-row md:items-center rounded-4xl"
+    >
+      <div class="md:w-180 md:h-90 relative">
+        <div class="rounded-4xl h-full overflow-hidden relative">
+          <img
+            src="/images/desktop/coffee-bean.png"
+            alt=""
+            class="bg-center bg-cover rounded-4xl w-full h-full hover:scale-105 transition-all duration-200 ease-in-out"
+          />
+        </div>
+
+        <div
+          class="absolute -bottom-5 -right-4 bg-white rounded-xl p-4 shadow-lg"
+        >
+          <h1 class="text-secondary text-2xl font-bold">Est. 2014</h1>
+          <p class="text-xs">BORN UNDER THE TROPICAL SUN</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <h3 class="text-primary text-xs">OUR PHYLOSOPHY</h3>
+        <h1 class="text-5xl font-bold">
+          Energized by <span class="text-tertiary">Nature's Pulse</span>
+        </h1>
+        <p class="text-sm text-neutral">
+          At Coffee Shop, we believe every cup should be a celebration of light
+          and flavour. We source directly from sun-drenched estates that
+          prioritize the planet.
+        </p>
+        <p class="text-sm text-neutral">
+          Our roasting process is calibrated to preserve the vibrant acidity and
+          tropical sweetness found only in the world's most exceptional
+          harvests.
+        </p>
+
+        <div class="flex gap-2 items-center">
+          <p>Discover the journey</p>
+          <button class="rounded-full bg-secondary/60 p-2"
+            ><Icon name="mdi:arrow-top-right" class="size-4" /></button
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<section>
+<section class="bg-lightbg px-4 md:px-28 md:py-16">
   <div class="h-full">
     <h1 class="text-xs text-tertiary">FRESH FROM THE BAKERY</h1>
     <div class="flex justify-between mt-1 mb-10">
@@ -27,16 +27,17 @@ import { Icon } from "astro-icon/components";
         <div class="flex flex-col gap-2">
           <div class="rounded-md shadow-md overflow-hidden size-68 group">
             <img
-              src="images/desktop/starbuck.png"
+              src="images/desktop/tropical-crossant.png"
               alt=""
               class="bg-center bg-cover w-full h-full rounded-md group-hover:scale-105 transition-transform duration-500"
             />
           </div>
           <div>
-            <h1>hello</h1>
+            <h1 class="pastriesTitle">Mango-curd Croissant</h1>
+            <p class="pastriesDesc">Twice-baked with handmake mango jam</p>
           </div>
         </div>
-        <div>
+        <div class="flex flex-col gap-2">
           <div class="rounded-lg shadow-md overflow-hidden size-68 group">
             <img
               src="/images/desktop/pistachio.png"
@@ -44,8 +45,14 @@ import { Icon } from "astro-icon/components";
               class="bg-center bg-cover w-full h-full rounded-lg group-hover:scale-105 transition-transform duration-500"
             />
           </div>
+          <div>
+            <h1 class="pastriesTitle">Tropical Financier</h1>
+            <p class="pastriesDesc">
+              Pistachio, lime zest, and coconut blossom
+            </p>
+          </div>
         </div>
-        <div>
+        <div class="flex flex-col gap-2">
           <div class="rounded-md shadow-md overflow-hidden size-68 group">
             <img
               src="/images/desktop/chocolate.png"
@@ -53,29 +60,35 @@ import { Icon } from "astro-icon/components";
               class="bg-center bg-cover w-full h-full rounded-md group-hover:scale-105 transition-transform duration-500"
             />
           </div>
-        </div>
-        <div class="flex flex-col gap-2">
-          <div class="rounded-md shadow-md overflow-hidden size-68 group">
-            <img
-              src="images/desktop/starbuck.png"
-              alt=""
-              class="bg-center bg-cover w-full h-full rounded-md group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
           <div>
-            <h1>hello</h1>
+            <h1 class="pastriesTitle">Dark Cocoa Sunrise</h1>
+            <p class="pastriesDesc">70% dark chocolate with a hint of x</p>
           </div>
         </div>
         <div class="flex flex-col gap-2">
           <div class="rounded-md shadow-md overflow-hidden size-68 group">
             <img
-              src="images/desktop/starbuck.png"
+              src="images/bread.jpg"
               alt=""
               class="bg-center bg-cover w-full h-full rounded-md group-hover:scale-105 transition-transform duration-500"
             />
           </div>
           <div>
-            <h1>hello</h1>
+            <h1 class="pastriesTitle">Lorem ipsum dolor</h1>
+            <p class="pastriesDesc">Lorem ipsum dolor sit amet consectetur .</p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2">
+          <div class="rounded-md shadow-md overflow-hidden size-68 group">
+            <img
+              src="images/bread.jpg"
+              alt=""
+              class="bg-center bg-cover w-full h-full rounded-md group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div>
+            <h1 class="pastriesTitle">Lorem ipsum dolor sit</h1>
+            <p class="pastriesDesc">Lorem ipsum dolor sit amet consectetur</p>
           </div>
         </div>
       </div>

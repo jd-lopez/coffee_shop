@@ -5,6 +5,7 @@ import Header from "../components/home/Header.astro";
 import Hero from "../components/home/Hero.astro";
 import SeasonSpecials from "../components/home/SeasonSpecials.astro";
 import Pastries from "../components/home/Pastries.astro";
+import Phylosophy from "../components/home/Phylosophy.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -14,8 +15,9 @@ import Pastries from "../components/home/Pastries.astro";
   <Header />
 
   <Hero />
-  <main class="px-4 md:px-28">
+  <main class="bg-lightbg">
     <SeasonSpecials />
     <Pastries />
+    <Phylosophy />
   </main>
 </Layout>
