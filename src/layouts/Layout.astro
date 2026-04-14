@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
 import { Font } from "astro:assets";
+import Header from "../components/home/Header.astro";
+import Footer from "../components/home/Footer.astro";
 ---
 
 <!doctype html>
@@ -15,8 +17,10 @@ import { Font } from "astro:assets";
     <Font cssVariable="--font-jakarta" />
   </head>
   <body>
+    <Header />
     <div class="relative overflow-x-hidden">
       <slot />
     </div>
+    <Footer />
   </body>
 </html>
