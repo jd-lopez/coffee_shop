@@ -22,6 +22,19 @@
     display: none;
   }
 
+  .page-pad {
+    @apply px-4 md:px-28;
+  }
+
+  .full-bleed {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
   .navBtn {
     @apply px-4 py-2 md:px-2 md:py-4;
   }
