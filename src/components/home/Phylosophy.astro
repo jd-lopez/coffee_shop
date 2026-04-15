@@ -3,7 +3,7 @@ import { Icon } from "astro-icon/components";
 ---
 
 <section class="px-4 py-10 md:px-28 md:py-15 bg-white">
-  <div>
+  <div class="flex flex-col items-center">
     <div
       class="flex flex-col relative justify-between gap-10 md:flex-row md:items-center rounded-4xl"
     >
@@ -45,6 +45,43 @@ import { Icon } from "astro-icon/components";
           <button class="rounded-full bg-secondary/60 p-2"
             ><Icon name="mdi:arrow-top-right" class="size-4" /></button
           >
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="relative rounded-2xl mt-6 md:mt-20 md:w-180 md:h-80 overflow-hidden group"
+    >
+      <div class="absolute inset-0 z-10 bg-primary/50 rounded-2xl"></div>
+
+      <img
+        src="/images/coffee-stay.jpg"
+        alt=""
+        class="bg-center rounded-2xl md:h-full md:w-full md:group-hover:scale-105 transition-all duration-200"
+      />
+
+      <div
+        class="flex gap-4 z-50 flex-col items-center absolute top-6 left-1 text-xs text-white md:text-sm md:top-1/4 md:left-10"
+      >
+        <h1 class="text-lg md:text-2xl font-bold">Find Your Sunshine</h1>
+        <p class="md:px-30 text-center">
+          Step into our vibrant spaces designed to recharge your spirit and
+          awaken your senses
+        </p>
+
+        <div class="flex gap-3">
+          <div
+            class="bg-white/5 shadow-2xl backdrop-blur-md backdrop-saturate ring ring-gray-400 rounded-xl px-2 py-1 text-center"
+          >
+            <p class="text-secondary text-xs">The Flagship</p>
+            <p>Downtown Oasis</p>
+          </div>
+          <div
+            class="bg-white/5 shadow-2xl backdrop-blur-md backdrop-saturate ring ring-gray-400 rounded-xl px-2 py-1 text-center"
+          >
+            <p class="text-secondary text-xs">The Flagship</p>
+            <p>Downtown Oasis</p>
+          </div>
         </div>
       </div>
     </div>
