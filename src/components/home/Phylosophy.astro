@@ -17,7 +17,8 @@ import { Icon } from "astro-icon/components";
         </div>
 
         <div
-          class="absolute -bottom-5 -right-4 bg-white rounded-xl p-4 shadow-lg ring-1 ring-secondary"
+          class="absolute -bottom-5 -right-4 bg-white rounded-xl p-4 shadow-lg ring-1 ring-secondary
+          landscape:p-2"
         >
           <h1 class="text-secondary text-2xl font-bold">Est. 2014</h1>
           <p class="text-xs">BORN UNDER THE TROPICAL SUN</p>
@@ -57,11 +58,11 @@ import { Icon } from "astro-icon/components";
       <img
         src="/images/coffee-stay.jpg"
         alt=""
-        class="bg-center rounded-2xl md:h-full md:w-full md:group-hover:scale-105 transition-all duration-200"
+        class="bg-center landscape:h-60 landscape:w-140 rounded-2xl md:h-full md:w-full md:group-hover:scale-105 transition-all duration-200"
       />
 
       <div
-        class="flex gap-4 z-50 flex-col items-center absolute top-6 left-1 text-xs text-white md:text-sm md:top-1/4 md:left-10"
+        class="flex gap-4 z-10 flex-col items-center absolute top-6 left-1 landscape:left-1/10 landscape:top-1/4 text-xs text-white md:text-sm md:top-1/4 md:left-10"
       >
         <h1 class="text-lg md:text-2xl font-bold">Find Your Sunshine</h1>
         <p class="md:px-30 text-center">
