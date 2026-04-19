@@ -15,16 +15,18 @@ import { Icon } from "astro-icon/components";
       class="absolute flex flex-col bg-lightbg gap-1 left-0 translate-x-full w-full transition-transform duration-300 ease-out md:static md:flex-row top-20 z-20 text-primary md:gap-3 md:bg-inherit md:translate-x-0 md:w-fit"
     >
       <a
-        class="navBtn border-b-2 border-transparent hover:border-primary hover:-translate-y-1 transition-all duration-200"
-        >Menu</a
+        class="flex items-center gap-6 text-lg navBtn border-b-2 border-transparent hoverEffect"
+        ><Icon name="mdi:restaurant-menu" /> Menu</a
       >
       <a
-        class="navBtn border-b-2 border-transparent hover:border-primary hover:-translate-y-1 transition-all duration-200"
-        >About</a
+        class="flex items-center gap-6 text-lg navBtn border-b-2 border-transparent hoverEffect"
+      >
+        <Icon name="mdi:about-circle-outline" /> About</a
       >
       <a
-        class="navBtn border-b-2 border-transparent hover:border-primary hover:-translate-y-1 transition-all duration-200"
-        >Locations</a
+        class="flex items-center gap-6 text-lg navBtn border-b-2 border-transparent hoverEffect"
+      >
+        <Icon name="mdi:location" /> Locations</a
       >
     </ul>
 
