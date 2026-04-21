@@ -50,8 +50,12 @@
   }
 
   .menuCategoryBtn {
-    @apply rounded-4xl md:rounded-2xl text-xs md:text-lg bg-primary/40 px-3 py-1 active:bg-primary active:scale-90 active:text-white md:hover:bg-primary md:hover:text-white shadow-md transition-all ease-in;
+    @apply rounded-4xl md:rounded-2xl text-xs md:text-lg bg-white ring-1 ring-primary px-3 py-1 active:bg-primary active:scale-90 active:text-white md:hover:bg-primary md:hover:text-white md:hover:ring-white  shadow-md transition-all ease-in;
   }
+}
+
+.active {
+  @apply bg-primary text-white ring ring-white;
 }
 
 .filter-container {
