@@ -7,31 +7,96 @@ console.log(items[0].data);
 ---
 
 <section class="p-4 bg-lightbg">
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-    {
-      items.map((item) => (
-        <div class="flex flex-col justify-between bg-white shadow-md rounded-2xl  ">
-          <div class="relative overflow-hidden rounded-t-2xl h-50">
-            <img
-              src={item.data.image}
-              alt=""
-              class="hover:scale-110 transition-all ease-in duration-200 bg-center bg-cover w-full h-full"
-            />
-          </div>
-          <div class="px-4 py-2 flex  flex-col gap-3 flex-1">
-            <div class="min-h-18 md:min-h-6 flex justify-between">
-              <h1 class="text-primary font-bold">{item.data.title}</h1>
-              <p class="text-tertiary font-bold">${item.data.price}</p>
-            </div>
-
-            <p class="text-neutral leading-4.5 ">{item.data.description}</p>
-            <button class="flex items-center justify-center gap-3 rounded-2xl   px-2 py-1 bg-primary text-white mt-auto active:scale-90 transition-all duration-150 ease-in">
-              <p>Add to Cart</p>
-              <Icon name="mdi:cart" />
-            </button>
-          </div>
+  <div class="flex flex-col gap-8">
+    <div class="">
+      <h1 class="text-2xl font-bold text-primary">Sip the Sun</h1>
+      <div class="flex flex-col justify-between mt-3 md:flex-row gap-3">
+        <div
+          class="filter-container flex justify-between gap-6 overflow-x-scroll scroll"
+        >
+          <button class="menuCategoryBtn" data-category="all">All items</button>
+          <button class="menuCategoryBtn" data-category="hot coffee"
+            >Hot Coffee</button
+          >
+          <button class="menuCategoryBtn" data-category="iced coffee"
+            >Iced coffe</button
+          >
+          <button class="menuCategoryBtn" data-category="brew gears"
+            >Brew Gears</button
+          >
+          <button class="menuCategoryBtn" data-category="pastries"
+            >Pastries</button
+          >
         </div>
-      ))
-    }
+        <div>
+          <label for="">Sort By:</label>
+          <select name="" id="" class="text-sm border border-black">
+            <option value="">Select a option</option>
+            <option value="price">Price</option>
+            <option value="popularity">Popularity</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      {
+        items.map((item) => (
+          <div
+            class="menu-card flex flex-col justify-between bg-white shadow-md rounded-2xl  "
+            data-category={item.data.category}
+          >
+            <div class="relative overflow-hidden rounded-t-2xl h-50">
+              <img
+                src={item.data.image}
+                alt=""
+                class="hover:scale-110 transition-all ease-in duration-200 bg-center bg-cover w-full h-full"
+              />
+            </div>
+            <div class="px-4 py-2 flex  flex-col gap-3 flex-1">
+              <div class="min-h-18 md:min-h-6 flex justify-between">
+                <h1 class="text-primary font-bold">{item.data.title}</h1>
+                <p class="text-tertiary font-bold">${item.data.price}</p>
+              </div>
+
+              <p class="text-neutral leading-4.5 ">{item.data.description}</p>
+              <button class="flex items-center justify-center gap-3 rounded-2xl   px-2 py-1 bg-primary text-white mt-auto active:scale-90 transition-all duration-150 ease-in">
+                <p>Add to Cart</p>
+                <Icon name="mdi:cart" />
+              </button>
+            </div>
+          </div>
+        ))
+      }
+    </div>
   </div>
 </section>
+
+<script>
+  const initMenuFilter = () => {
+    const buttons = document.querySelectorAll(".menuCategoryBtn");
+    const cards = document.querySelectorAll(".menu-card");
+
+    buttons.forEach((button) => {
+      if (!(button instanceof HTMLButtonElement) || button.dataset.bound === "true") {
+        return;
+      }
+
+      button.dataset.bound = "true";
+
+      button.addEventListener("click", () => {
+        const category = button.dataset.category;
+
+        cards.forEach((card) => {
+          if (!(card instanceof HTMLElement)) return;
+
+          const cardCategory = card.dataset.category;
+          const shouldShow = category === "all" || cardCategory === category;
+          card.classList.toggle("hidden", !shouldShow);
+        });
+      });
+    });
+  };
+
+  initMenuFilter();
+  document.addEventListener("astro:page-load", initMenuFilter);
+</script>
