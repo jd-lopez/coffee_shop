@@ -6,6 +6,8 @@ import { fontProviders } from "astro/config";
 
 import icon from "astro-icon";
 
+import react from "@astrojs/react";
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -21,5 +23,5 @@ export default defineConfig({
     },
   ],
 
-  integrations: [icon()],
+  integrations: [icon(), react()],
 });

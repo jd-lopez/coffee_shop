@@ -2,8 +2,9 @@
 import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
 const items = await getCollection("items");
+import AddToCartButton from "../AddToCart";
 
-console.log(items[0].data);
+console.log(items[0].id);
 ---
 
 <section class="p-4 bg-lightbg">
@@ -44,6 +45,7 @@ console.log(items[0].data);
       {
         items.map((item) => (
           <div
+            id={item.data.id}
             class="menu-card flex flex-col justify-between bg-white shadow-md rounded-2xl  "
             data-category={item.data.category}
           >
@@ -61,10 +63,11 @@ console.log(items[0].data);
               </div>
 
               <p class="text-neutral leading-4.5 ">{item.data.description}</p>
-              <button class="flex items-center justify-center gap-3 rounded-2xl   px-2 py-1 bg-primary text-white mt-auto active:scale-90 transition-all duration-150 ease-in">
-                <p>Add to Cart</p>
-                <Icon name="mdi:cart" />
-              </button>
+
+              <AddToCartButton client:load item={item} />
+              {/* <button class="flex items-center justify-center gap-3 rounded-2xl   px-2 py-1 bg-primary text-white mt-auto active:scale-90 transition-all duration-150 ease-in">
+                
+              </button> */}
             </div>
           </div>
         ))

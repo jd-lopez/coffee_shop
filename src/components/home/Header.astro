@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import Cart from "../Cart";
 ---
 
 <header class="sticky bg-lightbg top-0 w-full h-20 md:h-20 z-50 shadow-2xl">
@@ -36,7 +37,8 @@ import { Icon } from "astro-icon/components";
         class="px-2 py-1 ring ring-secondary text-xs bg-primary text-white md:px-3 md:py-1 rounded-2xl md:text-lg shadow-neutral md:hover:shadow-lg transition-all duration-400"
         >Order Now
       </button>
-      <Icon name="mdi:cart" class="text-primary size-5 md:hover:scale-140" />
+      <!-- <Icon name="mdi:cart" class="text-primary size-5 md:hover:scale-140" /> -->
+      <Cart client:load />
     </div>
 
     <button type="button" id="hamburger" class="md:hidden">

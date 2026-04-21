@@ -5,6 +5,7 @@ import { glob, file } from "astro/loaders";
 const items = defineCollection({
   loader: file("src/data/items.json"),
   schema: z.object({
+    id: z.string(),
     title: z.string(),
     category: z.enum(["hot coffee", "iced coffee", "pastries", "brew gears"]),
     image: z.string().optional(),
