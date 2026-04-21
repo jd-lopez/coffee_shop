@@ -2,19 +2,20 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<header class="fixed top-0 w-full h-20 md:h-20 bg-lightbg z-50 shadow-2xl">
+<header class="sticky bg-lightbg top-0 w-full h-20 md:h-20 z-50 shadow-2xl">
   <div
     class="flex justify-between h-full px-4 md:px-28 md:flex md:justify-between items-center py-3"
   >
-    <div class="text-primary font-bold text-sml md:text-2xl">
+    <a href="/" class="text-primary font-bold text-sml md:text-2xl">
       My Coffee Shop
-    </div>
+    </a>
 
     <ul
       id="nav-links"
-      class="absolute flex flex-col bg-lightbg gap-1 left-0 translate-x-full w-full transition-transform duration-300 ease-out md:static md:flex-row top-20 z-20 text-primary md:gap-3 md:bg-inherit md:translate-x-0 md:w-fit"
+      class="absolute bg-white flex flex-col gap-1 left-0 translate-x-full w-full transition-transform duration-300 ease-out md:static md:flex-row top-20 z-20 text-primary md:gap-3 md:bg-inherit md:translate-x-0 md:w-fit"
     >
       <a
+        href="/menu/"
         class="flex items-center gap-6 text-lg navBtn border-b-2 border-transparent hoverEffect"
         ><Icon name="mdi:restaurant-menu" /> Menu</a
       >

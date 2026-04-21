@@ -1,0 +1,72 @@
+[
+  {
+    "id": "obsidian-pour-over",
+    "title": "Obsidian Pour Over",
+    "description": "A deep, complete roast with notes of blackberry and dark chocolate.",
+    "image": "/images/menu/obsidian.png",
+    "price": 6.5
+  },
+  {
+    "id": "velvet-cortado",
+    "title": "Velvet Cortado",
+    "description": "Perfectly balanced espresso and steamed milk for a smooth, velvety texture.",
+    "image": "/images/menu/cortado.png",
+    "price": 4.75
+  },
+  {
+    "id": "aged-cold-brew",
+    "title": "Aged Cold Brew",
+    "description": "Slow-steeped for extra depth with a mellow finish and notes of cacao and cedar.",
+    "image": "/images/menu/aged-cold.png",
+    "price": 5.95
+  },
+  {
+    "id": "cardamom-rose-latte",
+    "title": "Cardamom Rose Latte",
+    "description": "Fragrant espresso and steamed milk infused with floral rose and warm cardamom spice.",
+    "image": "/images/menu/cardamon-rose.png",
+    "price": 6.25
+  },
+  {
+    "id": "flaky-golden-croissant",
+    "title": "Flaky Golden Croissant",
+    "description": "Buttery, crisp, and delicately layered for a classic pastry with a warm bakery finish.",
+    "image": "/images/menu/flaky-golden-croissant.png",
+    "price": 4.25
+  },
+  {
+    "id": "midnight-shakerato",
+    "title": "Midnight Shakerato",
+    "description": "Chilled espresso shaken until silky and bright, with a bold finish and subtle sweetness.",
+    "image": "/images/menu/midnight-chakerato.png",
+    "price": 5.75
+  },
+  {
+    "id": "miso-dark-tart",
+    "title": "Miso Dark Tart",
+    "description": "A rich dark chocolate tart lifted with a savory hint of miso for a deep, balanced bite.",
+    "image": "/images/menu/miso-dark-tart.png",
+    "price": 6.5
+  },
+  {
+    "id": "pistachio-cream-roll",
+    "title": "Pistachio Cream Roll",
+    "description": "Soft pastry filled with pistachio cream and topped with a nutty finish.",
+    "image": "/images/menu/pistacho.png",
+    "price": 5.5
+  },
+  {
+    "id": "smoked-oak-latte",
+    "title": "Smoked Oak Latte",
+    "description": "A smoky, wood-kissed latte with caramelized depth and a smooth espresso base.",
+    "image": "/images/menu/smoked-oak.png",
+    "price": 6.15
+  },
+  {
+    "id": "vibrant-espresso-shot",
+    "title": "Vibrant Espresso Shot",
+    "description": "Bright and punchy espresso with citrus sparkle, cocoa undertones, and a clean finish.",
+    "image": "/images/menu/vibrant-expresso.png",
+    "price": 3.5
+  }
+]

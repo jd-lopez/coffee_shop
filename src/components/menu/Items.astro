@@ -1,0 +1,37 @@
+---
+import { Icon } from "astro-icon/components";
+import { getCollection } from "astro:content";
+const items = await getCollection("items");
+
+console.log(items[0].data);
+---
+
+<section class="p-4 bg-lightbg">
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+    {
+      items.map((item) => (
+        <div class="flex flex-col justify-between bg-white shadow-md rounded-2xl  ">
+          <div class="relative overflow-hidden rounded-t-2xl h-50">
+            <img
+              src={item.data.image}
+              alt=""
+              class="hover:scale-110 transition-all ease-in duration-200 bg-center bg-cover w-full h-full"
+            />
+          </div>
+          <div class="px-4 py-2 flex  flex-col gap-3 flex-1">
+            <div class="min-h-18 md:min-h-6 flex justify-between">
+              <h1 class="text-primary font-bold">{item.data.title}</h1>
+              <p class="text-tertiary font-bold">${item.data.price}</p>
+            </div>
+
+            <p class="text-neutral leading-4.5 ">{item.data.description}</p>
+            <button class="flex items-center justify-center gap-3 rounded-2xl   px-2 py-1 bg-primary text-white mt-auto ">
+              <p>Add to Cart</p>
+              <Icon name="mdi:cart" />
+            </button>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

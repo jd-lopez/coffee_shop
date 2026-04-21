@@ -13,16 +13,17 @@ import Footer from "../components/home/Footer.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="color-scheme" />
     <title>Astro Basics</title>
     <Font cssVariable="--font-jakarta" />
   </head>
   <body class="overflow-x-hidden">
-    <div class="relative">
+    <div class="body-wrapper relative flex flex-col justify-between">
       <Header />
       <div class="">
         <slot />
-        <Footer />
       </div>
+      <Footer />
     </div>
   </body>
 </html>
