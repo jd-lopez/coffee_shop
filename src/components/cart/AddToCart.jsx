@@ -1,4 +1,4 @@
-import { addToCart } from "../store/cart";
+import { addToCart } from "../../store/cart";
 
 export default function AddToCartButton({ item }) {
   return (

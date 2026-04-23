@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
 const items = await getCollection("items");
-import AddToCartButton from "../AddToCart";
+import AddToCartButton from "../cart/AddToCart";
 
 console.log(items[0].id);
 ---
@@ -43,34 +43,41 @@ console.log(items[0].id);
     </div>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-6 px-2">
       {
-        items.map((item) => (
-          <div
-            id={item.data.id}
-            class="menu-card flex flex-col justify-between bg-white shadow-md rounded-2xl  "
-            data-category={item.data.category}
-          >
-            <div class="relative overflow-hidden rounded-t-2xl h-50">
-              <img
-                src={item.data.image}
-                alt=""
-                class="hover:scale-110 transition-all ease-in duration-200 bg-center bg-cover w-full h-full"
-              />
-            </div>
-            <div class="px-4 py-2 flex  flex-col gap-3 flex-1">
-              <div class="min-h-18 md:min-h-6 flex justify-between">
-                <h1 class="text-primary font-bold">{item.data.title}</h1>
-                <p class="text-tertiary font-bold">${item.data.price}</p>
+        items.map((item) => {
+          const { id, title, price, image } = item.data;
+
+          return (
+            <div
+              id={item.data.id}
+              class="menu-card flex flex-col justify-between bg-white shadow-md rounded-2xl  "
+              data-category={item.data.category}
+            >
+              <div class="relative overflow-hidden rounded-t-2xl h-50">
+                <img
+                  src={item.data.image}
+                  alt=""
+                  class="hover:scale-110 transition-all ease-in duration-200 bg-center bg-cover w-full h-full"
+                />
               </div>
+              <div class="px-4 py-2 flex  flex-col gap-3 flex-1">
+                <div class="min-h-18 md:min-h-6 flex justify-between">
+                  <h1 class="text-primary font-bold">{item.data.title}</h1>
+                  <p class="text-tertiary font-bold">${item.data.price}</p>
+                </div>
 
-              <p class="text-neutral leading-4.5 ">{item.data.description}</p>
+                <p class="text-neutral leading-4.5 ">{item.data.description}</p>
 
-              <AddToCartButton client:load item={item} />
-              {/* <button class="flex items-center justify-center gap-3 rounded-2xl   px-2 py-1 bg-primary text-white mt-auto active:scale-90 transition-all duration-150 ease-in">
+                <AddToCartButton
+                  client:load
+                  item={{ id, title, price, image }}
+                />
+                {/* <button class="flex items-center justify-center gap-3 rounded-2xl   px-2 py-1 bg-primary text-white mt-auto active:scale-90 transition-all duration-150 ease-in">
                 
               </button> */}
+              </div>
             </div>
-          </div>
-        ))
+          );
+        })
       }
     </div>
   </div>

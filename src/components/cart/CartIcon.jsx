@@ -1,8 +1,9 @@
 import { useStore } from "@nanostores/react";
-import { cart } from "../store/cart";
+import { cart } from "../../store/cart";
 
 export default function CartIcon() {
   const items = useStore(cart);
+  console.log(items);
 
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
 

@@ -1,0 +1,11 @@
+---
+import Layout from "../layouts/Layout.astro";
+import OrderSummary from "../components/cart/OrderSummary";
+---
+
+<Layout title="Your Cart">
+  <main class="p-6 md:py-8 md:px-28 bg-green-200/50">
+    <h1 class="text-3xl font-bold mb-6">Your Cart</h1>
+    <OrderSummary client:only="react" />
+  </main>
+</Layout>
