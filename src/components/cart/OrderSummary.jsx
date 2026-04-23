@@ -5,6 +5,8 @@ import { cart, decreaseQuantity, increase, removeItem } from "../../store/cart";
 export default function OrderSummary() {
   const items = useStore(cart);
 
+  const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
+
   const totalPrice = items.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0,
@@ -21,9 +23,9 @@ export default function OrderSummary() {
   }
 
   return (
-    <div>
+    <div className="">
       <h1 className="text-lg text-neutral mb-8">
-        {items.length} are in your cart
+        {totalItems} items are in your cart
       </h1>
       <div className="flex flex-col md:flex-row justify-between gap-10">
         <div className="flex flex-col gap-2 flex-2">
@@ -31,7 +33,7 @@ export default function OrderSummary() {
             return (
               <div
                 key={item.id}
-                className="rounded-2xl bg-white flex gap-2 shadow"
+                className="rounded-2xl bg-lightbg flex gap-2 shadow"
               >
                 <div className="size-20 md:size-36">
                   <img src={item.image} alt="" className="h-full rounded-2xl" />
@@ -70,7 +72,7 @@ export default function OrderSummary() {
             );
           })}
         </div>
-        <div className="flex-1 bg-white shadow rounded-2xl p-6 h-fit flex flex-col gap-4">
+        <div className="flex-1 bg-lightbg shadow rounded-2xl p-6 h-fit flex flex-col gap-4">
           <h1>Order Summary</h1>
 
           <div className="flex flex-col gap-2">

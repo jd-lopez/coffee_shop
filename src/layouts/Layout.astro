@@ -23,9 +23,11 @@ import { ClientRouter, fade, slide } from "astro:transitions";
     transition:animate={fade({ duration: "0.4s" })}
     class="overflow-x-hidden"
   >
-    <div class="body-wrapper relative flex flex-col justify-between">
+    <div
+      class="body-wrapper relative min-h-screen flex flex-col justify-between"
+    >
       <Header />
-      <div class="">
+      <div class="flex-1 flex flex-col">
         <slot />
       </div>
       <Footer />
