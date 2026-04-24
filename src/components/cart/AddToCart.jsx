@@ -22,7 +22,7 @@ export default function AddToCartButton({ item }) {
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="size-5 group-active:scale-150 group-active:fill-red-600 transition-all ease-in group-hover:animate-bounce"
+        className="size-5 group-active:scale-150 group-active:fill-red-600 transition-all ease-in md:group-hover:animate-bounce"
       >
         <path
           strokeLinecap="round"
