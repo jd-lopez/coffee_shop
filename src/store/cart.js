@@ -54,3 +54,7 @@ export function removeItem(id) {
 
   cart.set(currentCart.filter((p) => p.id !== id));
 }
+
+export function clearCart() {
+  cart.set([]);
+}
