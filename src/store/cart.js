@@ -55,6 +55,11 @@ export function removeItem(id) {
   cart.set(currentCart.filter((p) => p.id !== id));
 }
 
+export function removeFromCart(id) {
+  const currentCart = cart.get();
+  cart.set(currentCart.filter((item) => item.id !== id));
+}
+
 export function clearCart() {
   cart.set([]);
 }
