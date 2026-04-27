@@ -9,8 +9,11 @@ import {
   removeFromCart,
 } from "../../store/cart";
 import { motion, AnimatePresence, LayoutGroup } from "motion/react";
+import OrderFormModal from "./OrderFormModal";
 
 export default function OrderSummary() {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
   const items = useStore(cart);
 
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
@@ -91,7 +94,7 @@ export default function OrderSummary() {
                             viewBox="0 0 24 24"
                             stroke-width="1.5"
                             stroke=""
-                            class="size-6 stroke-red-600 active:animate-spin"
+                            className="size-6 stroke-red-600 active:animate-spin"
                           >
                             <path
                               stroke-linecap="round"
@@ -157,13 +160,23 @@ export default function OrderSummary() {
           <button
             className="rounded-3xl p-2 bg-primary text-white font-bold"
             onClick={() => {
-              console.log(typeof shipping);
+              setIsFormOpen(true);
             }}
           >
             Checkout
           </button>
         </div>
       </div>
+      <AnimatePresence>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          {isFormOpen && (
+            <OrderFormModal
+              openForm={isFormOpen}
+              setIsFormOpen={setIsFormOpen}
+            />
+          )}
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 }
