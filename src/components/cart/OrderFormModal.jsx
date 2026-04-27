@@ -1,17 +1,27 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 import { useStore } from "@nanostores/react";
-import { cart } from "../../store/cart";
+import { cart, clearCart } from "../../store/cart";
 
 export default function OrderFormModal({ isFormOpen, setIsFormOpen }) {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const [address, setAddress] = useState("");
   const [payment, setPayment] = useState("");
-  console.log(name);
+
   function handleSubmition(e) {
     e.preventDefault();
+    messageBuilder();
+    setName("");
+    setNumber("");
+    setAddress("");
+    setPayment("");
+    clearCart();
 
+    console.log(name, address);
+  }
+
+  function messageBuilder() {
     const items = cart.get();
 
     const total = items.reduce(
@@ -28,20 +38,18 @@ export default function OrderFormModal({ isFormOpen, setIsFormOpen }) {
       )
       .join("\n");
 
-    const message = `Hello, I would like to place this order:
+    const message = `Hola, me gustaria ordenar:
 
-Name: ${name}
-Phone: ${number}
-Address: ${address}
-Payment method: ${payment}
-
-Order:
+Pedido:
 ${itemsText}
 
+Nombre: ${name}
+Telefono: ${number}
+Direccion: ${address}
+Forma de pago: ${payment}
+
 Total: $${total.toFixed(2)}
-
-Notes:  "None"`;
-
+`;
     const whatsappUrl = `https://wa.me/+50587952614?text=${encodeURIComponent(
       message,
     )}`;
@@ -55,9 +63,19 @@ Notes:  "None"`;
         className="absolute inset-0 bg-gray-400/50"
         onClick={() => setIsFormOpen(false)}
       ></div>
-      <dialog
+      <motion.dialog
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{
+          opacity: 1,
+          scale: 1,
+          transition: { duration: 0.2, ease: "easeIn" },
+        }}
+        exit={{
+          opacity: 0,
+          scale: 0.8,
+        }}
         open
-        className="absolute top-1/7 md:left-1/3 p-4 min-w-60 md:w-120 rounded-2xl overflow-auto"
+        className="absolute top-1/8 md:left-1/3 p-4 min-w-60 md:w-120 rounded-2xl overflow-auto"
       >
         <form action="" onSubmit={handleSubmition} className="flex flex-col">
           <h1 className="text-2xl text-primary font-bold">
@@ -71,7 +89,9 @@ Notes:  "None"`;
             <div className="flex flex-col gap-1">
               <label htmlFor="">Nombre</label>
               <input
+                required
                 type="text"
+                value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="border border-gray-600 rounded-lg px-2 py-0.5 outline-0 focus:ring focus:ring-blue-600"
               />
@@ -80,6 +100,7 @@ Notes:  "None"`;
             <div className="flex flex-col gap-1">
               <label htmlFor="">Telefono</label>
               <input
+                value={number}
                 type="number"
                 onChange={(e) => setNumber(e.target.value)}
                 className="border border-gray-600 rounded-lg px-2 py-0.5 outline-0 focus:ring focus:ring-blue-600"
@@ -88,6 +109,8 @@ Notes:  "None"`;
             <div className="flex flex-col gap-1">
               <label htmlFor="">Direccion</label>
               <input
+                value={address}
+                required
                 type="text"
                 onChange={(e) => setAddress(e.target.value)}
                 className="border border-gray-600 rounded-lg px-2 py-0.5 outline-0 focus:ring focus:ring-blue-600"
@@ -97,9 +120,11 @@ Notes:  "None"`;
               <legend>Selecciona un metodo de pago</legend>
               <div>
                 <input
+                  required
                   value="Tarjeta"
                   type="radio"
                   name="payment"
+                  checked={payment === "Tarjeta"}
                   onChange={(e) => setPayment(e.target.value)}
                 />
                 <label htmlFor="">Tarjeta</label>
@@ -107,9 +132,11 @@ Notes:  "None"`;
 
               <div>
                 <input
+                  required
                   value="Transferencia"
                   type="radio"
                   name="payment"
+                  checked={payment === "Transferencia"}
                   onChange={(e) => setPayment(e.target.value)}
                 />
                 <label htmlFor="">Transferencia</label>
@@ -117,9 +144,11 @@ Notes:  "None"`;
 
               <div>
                 <input
+                  required
                   value="Efectivo"
                   type="radio"
                   name="payment"
+                  checked={payment === "Efectivo"}
                   onChange={(e) => setPayment(e.target.value)}
                 />
                 <label htmlFor="">Efectivo</label>
@@ -131,7 +160,7 @@ Notes:  "None"`;
             Order On Whatsapp
           </button>
         </form>
-      </dialog>
+      </motion.dialog>
     </div>
   );
 }

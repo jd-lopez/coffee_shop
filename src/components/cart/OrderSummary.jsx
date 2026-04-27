@@ -168,14 +168,9 @@ export default function OrderSummary() {
         </div>
       </div>
       <AnimatePresence>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          {isFormOpen && (
-            <OrderFormModal
-              openForm={isFormOpen}
-              setIsFormOpen={setIsFormOpen}
-            />
-          )}
-        </motion.div>
+        {isFormOpen && (
+          <OrderFormModal openForm={isFormOpen} setIsFormOpen={setIsFormOpen} />
+        )}
       </AnimatePresence>
     </div>
   );
