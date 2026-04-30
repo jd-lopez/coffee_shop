@@ -75,7 +75,7 @@ Total: $${total.toFixed(2)}
           scale: 0.8,
         }}
         open
-        className="absolute top-1/8 md:left-1/3 p-4 min-w-60 md:w-120 rounded-2xl overflow-auto"
+        className="fixed top-1/6 md:left-1/3 p-4 min-w-60 md:w-120 rounded-2xl overflow-auto"
       >
         <form action="" onSubmit={handleSubmition} className="flex flex-col">
           <h1 className="text-2xl text-primary font-bold">

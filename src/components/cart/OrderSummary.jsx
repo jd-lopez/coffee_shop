@@ -39,7 +39,9 @@ export default function OrderSummary() {
   if (items.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center">
-        <h1 className="text-primary font-bold text-2xl">Your Cart is Empty</h1>
+        <h1 className="text-primary font-bold text-2xl">
+          Tu carrito está vacío
+        </h1>
         <img src="/images/menu/delivery.gif" alt="" />
       </div>
     );
@@ -49,14 +51,14 @@ export default function OrderSummary() {
     <div className="">
       <div className="flex mb-6 justify-between">
         <h1 className="text-lg text-neutral">
-          {totalItems} items are in your cart
+          {totalItems} artículo(s) en tu carrito
         </h1>
         <button
           onClick={() => {
             handleClearCart();
           }}
         >
-          Clear cart
+          Vaciar carrito
         </button>
       </div>
       <div className="flex flex-col md:flex-row justify-between gap-10">

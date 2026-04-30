@@ -3,7 +3,7 @@ import { addToCart } from "../../store/cart";
 import { useState } from "react";
 
 export default function AddToCartButton({ item }) {
-  const [label, setLabel] = useState("Add to Cart");
+  const [label, setLabel] = useState("Agregar al carrito");
 
   return (
     <button
@@ -11,8 +11,8 @@ export default function AddToCartButton({ item }) {
       onClick={() => {
         addToCart(item);
 
-        setLabel("Added!");
-        setTimeout(() => setLabel("Add to Cart"), 2000);
+        setLabel("¡Agregado!");
+        setTimeout(() => setLabel("Agregar al carrito"), 2000);
       }}
     >
       <p>{label}</p>

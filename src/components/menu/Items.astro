@@ -3,14 +3,12 @@ import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
 const items = await getCollection("items");
 import AddToCartButton from "../cart/AddToCart";
-
-console.log(items[0].id);
 ---
 
 <section class="p-4 bg-lightbg/50">
-  <div class="flex flex-col relative gap-4">
+  <div id="" class="flex flex-col relative gap-4">
     <h1 class="text-2xl font-bold text-primary px-2">Sip the Sun</h1>
-    <div class="sticky top-20 z-40 pb-2">
+    <div id="filterContainer" class="sticky top-20 z-40 pb-2">
       <div
         class="flex flex-col justify-between mt-3 md:flex-row gap-3 items-center"
       >
@@ -33,17 +31,24 @@ console.log(items[0].id);
             >Pastries</button
           >
         </div>
-        <div>
+        <div class="p-2">
           <label for="">Sort By:</label>
-          <select name="" id="" class="text-sm border border-black">
-            <option value="">Select a option</option>
-            <option value="price">Price</option>
-            <option value="popularity">Popularity</option>
+          <select
+            name="sorting"
+            id="sort-select"
+            class="text-sm border border-black rounded-2xl px-1 py-0.5"
+          >
+            <option value="">Select an option</option>
+            <option value="lowtohigh">Price: Lowest to highest</option>
+            <option value="hightolow">Price: Highest to lowest</option>
           </select>
         </div>
       </div>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-6 px-2">
+    <div
+      id="target"
+      class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-6 px-2"
+    >
       {
         items.map((item) => {
           const { id, title, price, image } = item.data;
@@ -53,6 +58,7 @@ console.log(items[0].id);
               id={item.data.id}
               class="menu-card flex flex-col justify-between bg-white shadow-md rounded-2xl  "
               data-category={item.data.category}
+              data-price={item.data.price}
             >
               <div class="relative overflow-hidden rounded-t-2xl h-50">
                 <img
@@ -83,41 +89,117 @@ console.log(items[0].id);
       }
     </div>
   </div>
-</section>
 
-<script>
-  const initMenuFilter = () => {
-    const buttons = document.querySelectorAll(".menuCategoryBtn");
-    const cards = document.querySelectorAll(".menu-card");
+  <script>
+    const initMenuFilterAndSort = () => {
+      const buttons = document.querySelectorAll(".menuCategoryBtn");
+      const cards = document.querySelectorAll(".menu-card");
+      const grid = document.getElementById("target");
+      const selectedSort = document.getElementById("sort-select");
 
-    buttons.forEach((button) => {
-      if (
-        !(button instanceof HTMLButtonElement) ||
-        button.dataset.bound === "true"
-      ) {
-        return;
-      }
+      if (!(grid instanceof HTMLElement)) return;
+      if (!(selectedSort instanceof HTMLSelectElement)) return;
 
-      button.dataset.bound = "true";
+      function applyFilterAndSort() {
+        const activeButton = document.querySelector(".menuCategoryBtn.active");
+        const category =
+          activeButton instanceof HTMLButtonElement
+            ? activeButton.dataset.category
+            : "all";
 
-      button.addEventListener("click", () => {
-        const category = button.dataset.category;
-        buttons.forEach((button) => {
-          button.classList.remove("active");
-        });
-        button.classList.add("active");
+        const allCards = Array.from(
+          document.querySelectorAll(".menu-card"),
+        ).filter((card): card is HTMLElement => card instanceof HTMLElement);
 
-        cards.forEach((card) => {
-          if (!(card instanceof HTMLElement)) return;
-
+        allCards.forEach((card) => {
           const cardCategory = card.dataset.category;
           const shouldShow = category === "all" || cardCategory === category;
           card.classList.toggle("hidden", !shouldShow);
         });
-      });
-    });
-  };
 
-  initMenuFilter();
-  document.addEventListener("astro:page-load", initMenuFilter);
-</script>
+        const visibleCards = allCards.filter(
+          (card) => !card.classList.contains("hidden"),
+        );
+
+        const sortedCards = [...visibleCards];
+
+        if (selectedSort.value === "lowtohigh") {
+          sortedCards.sort((a, b) => {
+            const priceA = Number(a.dataset.price);
+            const priceB = Number(b.dataset.price);
+            return priceA - priceB;
+          });
+        }
+
+        if (selectedSort.value === "hightolow") {
+          sortedCards.sort((a, b) => {
+            const priceA = Number(a.dataset.price);
+            const priceB = Number(b.dataset.price);
+            return priceB - priceA;
+          });
+        }
+
+        sortedCards.forEach((card) => grid.appendChild(card));
+      }
+
+      buttons.forEach((button) => {
+        if (
+          !(button instanceof HTMLButtonElement) ||
+          button.dataset.bound === "true"
+        ) {
+          return;
+        }
+
+        button.dataset.bound = "true";
+
+        button.addEventListener("click", () => {
+          buttons.forEach((btn) => {
+            if (btn instanceof HTMLButtonElement) {
+              btn.classList.remove("active");
+            }
+          });
+
+          button.classList.add("active");
+          applyFilterAndSort();
+        });
+      });
+
+      if (selectedSort.dataset.bound !== "true") {
+        selectedSort.dataset.bound = "true";
+
+        selectedSort.addEventListener("change", () => {
+          applyFilterAndSort();
+        });
+      }
+
+      applyFilterAndSort();
+    };
+
+    initMenuFilterAndSort();
+    document.addEventListener("astro:page-load", initMenuFilterAndSort);
+
+    //sort by
+
+    // changing color to fixed filters
+    const container = document.getElementById("filterContainer");
+
+    const target = document.getElementById("target");
+
+    function checkPosition() {
+      if (!container || !target) return;
+      const containerRect = container?.getBoundingClientRect();
+      const targetRect = target?.getBoundingClientRect();
+
+      if (containerRect?.bottom >= targetRect?.top) {
+        container?.classList.add("bg-white", "shadow-lg");
+      } else {
+        container?.classList.remove("bg-white", "shadow-lg");
+      }
+    }
+
+    window.addEventListener("scroll", checkPosition);
+    window.addEventListener("resize", checkPosition);
+
+    checkPosition();
+  </script>
+</section>
