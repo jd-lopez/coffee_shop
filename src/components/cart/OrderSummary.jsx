@@ -61,7 +61,7 @@ export default function OrderSummary() {
           Vaciar carrito
         </button>
       </div>
-      <div className="flex flex-col md:flex-row justify-between gap-10">
+      <div className="flex flex-col landscape:flex-row md:flex-row justify-between gap-10">
         <LayoutGroup>
           <div className="flex flex-col gap-4 flex-2">
             <AnimatePresence mode="popLayout">
@@ -108,17 +108,17 @@ export default function OrderSummary() {
                       </div>
 
                       <div className="flex justify-between">
-                        <p>${item.price}</p>
+                        <p className="text-tertiary font-bold">${item.price}</p>
                         <div className="flex gap-4 rounded-2xl bg-green-500 px-2 py-1 text-white items-center">
                           <button
-                            className="text-xl text-black size-6 bg-lightbg rounded-full grid place-content-center"
+                            className="active:scale-90 text-xl text-black size-6 bg-lightbg rounded-full grid place-content-center"
                             onClick={() => decreaseQuantity(item.id)}
                           >
                             -
                           </button>
                           <span>{item.quantity}</span>
                           <button
-                            className=" size-6 bg-primary text-lg rounded-full grid content-center"
+                            className=" active:scale-90 size-6 bg-primary text-lg rounded-full grid content-center"
                             onClick={() => increase(item.id)}
                           >
                             +

@@ -293,10 +293,17 @@ Total: $${total.toFixed(2)}
           </div>
 
           <div className="flex justify-between">
-            <button className="bg-red-600 rounded-lg px-4 py-0.5 text-white font-bold active:scale-90 ease-in transition-all">
+            <button
+              onClick={() => setIsFormOpen(false)}
+              type="button"
+              className="bg-red-600 rounded-lg px-4 py-0.5 text-white font-bold active:scale-90 ease-in transition-all"
+            >
               Cancel
             </button>
-            <button className="rounded-lg bg-primary text-white px-4 py-1 font-bold active:scale-90 ease-in transition-all flex items-center gap-2">
+            <button
+              type="submit"
+              className="rounded-lg bg-primary text-white px-4 py-1 font-bold active:scale-90 ease-in transition-all flex items-center gap-2"
+            >
               <svg
                 role="img"
                 viewBox="0 0 24 24"
