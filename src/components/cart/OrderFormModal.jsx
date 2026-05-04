@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 import { useStore } from "@nanostores/react";
-import { cart, clearCart } from "../../store/cart";
+import { cart } from "../../store/cart";
 
 export default function OrderFormModal({ isFormOpen, setIsFormOpen }) {
   const [name, setName] = useState("");
@@ -90,7 +90,7 @@ Total: $${total.toFixed(2)}
               Agrega detalles del pedido como nombre, direccion, forma de pago.
               Esto sera el contenido del mensaje de whatsapp.
             </p>
-            <div className="flex flex-col gap-2 mt-1 font-semibold ">
+            <div className="flex flex-col gap-2 mt-1 font-semibold p-4">
               <div className="flex flex-col gap-1">
                 <label htmlFor="">Nombre</label>
 

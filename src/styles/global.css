@@ -23,7 +23,7 @@
   }
 
   .page-pad {
-    @apply px-4 md:px-28;
+    @apply px-4 md:px-14 lg:px-28;
   }
 
   .full-bleed {
