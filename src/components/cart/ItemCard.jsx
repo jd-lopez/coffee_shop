@@ -15,19 +15,27 @@ export default function ItemCard({ items, className, isSidebar }) {
         return (
           <motion.div
             key={item.id}
-            className={`rounded-2xl bg-lightbg flex gap-2 shadow ${className}`}
+            className={`rounded-2xl bg-lightbg flex gap-2 shadow ${isSidebar ? "flex-col items-center bg-white w-full rounded-none" : ""}`}
             layout
             initial={{ opacity: 0, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, x: -10, scale: 0.8 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="size-20 md:size-36">
-              <img src={item.image} alt="" className="h-full rounded-2xl" />
+            <div
+              className={`size-20  ${isSidebar ? "md:size-16" : "md:size-36"}`}
+            >
+              <img src={item.image} alt="" className={`h-full rounded-2xl`} />
             </div>
-            <div className={`flex flex-col flex-1 p-2 md:p-6 justify-between `}>
+            <div
+              className={`flex flex-col flex-1 p-2 justify-between ${isSidebar ? "md:p-1" : " md:p-6"}`}
+            >
               <div className="flex justify-between ">
-                <h1 className="text-lg font-bold">{item.title}</h1>
+                <h1
+                  className={`text-lg font-bold ${isSidebar ? "text-sm" : ""}`}
+                >
+                  {item.title}
+                </h1>
                 <button
                   className="text-red-600"
                   onClick={() => removeItem(item.id)}
