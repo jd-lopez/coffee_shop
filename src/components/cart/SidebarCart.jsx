@@ -32,7 +32,7 @@ export default function SidebarCart() {
         animate={{ opacity: 1, x: 0 }}
         exit={{}}
         transition={{ duration: 0.3, ease: "easeIn" }}
-        className="hidden  md:flex flex-col items-center gap-2 md:sticky top-24 h-screen w-100 overflow-auto bg-white shadow-md "
+        className="hidden  md:flex flex-col items-center gap-2 md:sticky top-24 h-screen w-100  bg-white shadow-md "
       >
         <div className="sticky top-0 bg-white w-full p-4 shadow ">
           <p className="mb-4">Subtotal: ${cartTotal} </p>
@@ -45,7 +45,9 @@ export default function SidebarCart() {
           </a>
         </div>
 
-        <ItemCard items={items} isSidebar={sidebar} />
+        <div className="overflow-auto h-screen">
+          <ItemCard items={items} isSidebar={sidebar} />
+        </div>
       </motion.div>
     </AnimatePresence>
   );
